@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bird Index</title>
+  </head>
+  <body>
+    <h1>All Birds</h1>
+    <a href="/birds/new">Add New Bird</a>
+    <ul>
+      <% birds.forEach(bird => { %>
+      <li>
+        <a href="/birds/<%= bird._id %>"> <%= bird.name %> </a>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
