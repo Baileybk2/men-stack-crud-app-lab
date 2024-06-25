@@ -46,6 +46,11 @@ app.delete("/birds/:birdId", async (req, res) => {
   res.redirect("/birds");
 });
 
+app.get("/birds/:birdId/edit", async (req, res) => {
+  const foundBird = await Birds.findById(req.params.birdId);
+  res.render("birds/edit.ejs", { birds: foundBird });
+});
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
