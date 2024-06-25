@@ -51,6 +51,11 @@ app.get("/birds/:birdId/edit", async (req, res) => {
   res.render("birds/edit.ejs", { birds: foundBird });
 });
 
+app.put("/birds/:birdId", async (req, res) => {
+  await Birds.findByIdAndUpdate(req.params.birdId, req.body);
+  res.redirect(`/birds/${req.params.birdId}`);
+});
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
